@@ -1,0 +1,26 @@
+{
+  "updatedAt": "2026-08-28T17:04:48.833Z",
+  "codeforces": {
+    "rating": 1162,
+    "maxRating": 1230,
+    "rank": "Newbie",
+    "maxRank": "Pupil",
+    "solved": 450
+  },
+  "codechef": {
+    "rating": 1622,
+    "maxRating": 1644,
+    "stars": "3★",
+    "contests": 6,
+    "solved": 29
+  },
+  "leetcode": {
+    "solved": 220,
+    "easy": 95,
+    "medium": 102,
+    "hard": 23,
+    "contestRating": 1508,
+    "primaryLanguage": "C++",
+    "primarySolved": 204
+  }
+}
