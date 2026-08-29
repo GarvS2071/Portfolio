@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;1,300&family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
   <div class="shell">
@@ -78,32 +78,39 @@
             </div>
 
             <div class="live-block">
-              <div class="heat-bar">
-                <p class="hash heat-label">coding stats</p>
-                <label class="heat-year-wrap">
-                  <span>year</span>
-                  <select id="heat-year" aria-label="Activity year"></select>
-                </label>
-              </div>
+              <p class="hash">coding stats</p>
               <p class="live-copy" id="live-stats-line">CF Pupil · CC 3★ · LC 220</p>
               <p class="live-copy" id="heat-today">checking today’s activity…</p>
-              <div class="heat-scroll">
-                <div class="heat-inner">
-                  <div id="heat-months" class="heat-months"></div>
-                  <div id="heat-map" class="heat-map" role="img" aria-label="Yearly coding activity heatmap"></div>
-                </div>
-              </div>
-              <div class="heat-legend">
-                <span>less</span>
-                <span class="heat-cell l0"></span>
-                <span class="heat-cell l1"></span>
-                <span class="heat-cell l2"></span>
-                <span class="heat-cell l3"></span>
-                <span class="heat-cell l4"></span>
-                <span>more</span>
-              </div>
             </div>
           </aside>
+
+          <div class="heat-board">
+            <div class="heat-bar">
+              <p class="hash heat-label">coding stats</p>
+              <label class="heat-year-wrap">
+                <span>year</span>
+                <select id="heat-year" aria-label="Activity year"></select>
+              </label>
+            </div>
+            <div class="heat-cf">
+              <div class="heat-months" id="heat-months"></div>
+              <div class="heat-body">
+                <div class="heat-ydays" aria-hidden="true">
+                  <span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span>
+                </div>
+                <div id="heat-map" class="heat-map" role="img" aria-label="Yearly coding activity heatmap"></div>
+              </div>
+            </div>
+            <div class="heat-legend">
+              <span>less</span>
+              <span class="heat-cell l0"></span>
+              <span class="heat-cell l1"></span>
+              <span class="heat-cell l2"></span>
+              <span class="heat-cell l3"></span>
+              <span class="heat-cell l4"></span>
+              <span>more</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -370,6 +377,6 @@
       <span>Java · Spring Boot · ZooKeeper</span>
     </footer>
   </div>
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=6"></script>
 </body>
 </html>

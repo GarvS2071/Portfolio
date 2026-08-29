@@ -97,65 +97,78 @@ function levelFor(count, max) {
   return 1;
 }
 
+function buildWeeks(year) {
+  const weeks = [];
+  const jan1 = new Date(year, 0, 1);
+  const dec31 = new Date(year, 11, 31);
+  const cursor = new Date(jan1);
+  cursor.setDate(cursor.getDate() - cursor.getDay());
+
+  while (weeks.length < 54) {
+    const week = [];
+    let inYear = false;
+    let last = null;
+    for (let i = 0; i < 7; i += 1) {
+      last = new Date(cursor);
+      if (cursor.getFullYear() === year) {
+        week.push({
+          key: toDayKey(cursor),
+          month: cursor.getMonth(),
+          date: cursor.getDate(),
+        });
+        inYear = true;
+      } else {
+        week.push(null);
+      }
+      cursor.setDate(cursor.getDate() + 1);
+    }
+    if (inYear) weeks.push(week);
+    if (last >= dec31) break;
+  }
+  return weeks;
+}
+
 function renderHeatmap(year) {
   const mapEl = document.getElementById("heat-map");
   const monthsEl = document.getElementById("heat-months");
   if (!mapEl || !monthsEl) return;
 
-  const counts = activityByYear[year] || {};
+  const y = Number(year);
+  const counts = activityByYear[y] || activityByYear[String(y)] || {};
   const max = Math.max(0, ...Object.values(counts));
-  const start = new Date(year, 0, 1);
-  const end = new Date(year, 11, 31);
-  const cursor = new Date(start);
-  cursor.setDate(cursor.getDate() - cursor.getDay());
+  const weeks = buildWeeks(y);
+  const todayKey = toDayKey(new Date());
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
+  mapEl.style.gridTemplateColumns = `repeat(${weeks.length}, minmax(0, 1fr))`;
+  monthsEl.style.gridTemplateColumns = `repeat(${weeks.length}, minmax(0, 1fr))`;
   mapEl.innerHTML = "";
   monthsEl.innerHTML = "";
 
-  const todayKey = toDayKey(new Date());
-  let week = document.createElement("div");
-  week.className = "heat-week";
-  const monthAtWeek = [];
-  let lastMonth = -1;
+  let labeled = new Set();
+  weeks.forEach((week) => {
+    const col = document.createElement("div");
+    col.className = "heat-week";
+    week.forEach((day) => {
+      const cell = document.createElement("span");
+      if (!day) {
+        cell.className = "heat-cell ghost";
+      } else {
+        const count = counts[day.key] || 0;
+        cell.className = `heat-cell l${levelFor(count, max)}`;
+        if (day.key === todayKey) cell.classList.add("is-today");
+        cell.title = `${day.key}: ${count} activit${count === 1 ? "y" : "ies"}`;
+      }
+      col.appendChild(cell);
+    });
+    mapEl.appendChild(col);
 
-  const stop = new Date(end);
-  stop.setDate(stop.getDate() + (6 - stop.getDay()));
-
-  while (cursor <= stop) {
-    if (cursor.getDay() === 0 && week.childNodes.length) {
-      mapEl.appendChild(week);
-      monthAtWeek.push(lastMonth);
-      week = document.createElement("div");
-      week.className = "heat-week";
-    }
-
-    const key = toDayKey(cursor);
-    const inYear = cursor.getFullYear() === Number(year);
-    const count = inYear ? counts[key] || 0 : 0;
-    const cell = document.createElement("span");
-    cell.className = `heat-cell l${inYear ? levelFor(count, max) : 0}`;
-    if (inYear && key === todayKey) cell.classList.add("is-today");
-    cell.title = inYear ? `${key}: ${count} activit${count === 1 ? "y" : "ies"}` : "";
-    week.appendChild(cell);
-
-    if (inYear) lastMonth = cursor.getMonth();
-    cursor.setDate(cursor.getDate() + 1);
-  }
-  if (week.childNodes.length) {
-    mapEl.appendChild(week);
-    monthAtWeek.push(lastMonth);
-  }
-
-  const labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  let prev = -1;
-  monthAtWeek.forEach((month) => {
     const tag = document.createElement("span");
     tag.className = "heat-month";
-    tag.style.width = "14px";
-    if (month !== prev && month >= 0) {
-      tag.textContent = labels[month];
-      tag.style.width = "42px";
-      prev = month;
+    const monthStart = week.find((day) => day && day.date === 1);
+    if (monthStart && !labeled.has(monthStart.month)) {
+      tag.textContent = monthNames[monthStart.month];
+      labeled.add(monthStart.month);
     }
     monthsEl.appendChild(tag);
   });
@@ -163,8 +176,8 @@ function renderHeatmap(year) {
   const todayCount = counts[todayKey] || 0;
   const todayLine = document.getElementById("heat-today");
   if (todayLine) {
-    if (Number(year) !== new Date().getFullYear()) {
-      todayLine.textContent = `${year} activity across GitHub, Codeforces, CodeChef, and LeetCode`;
+    if (y !== new Date().getFullYear()) {
+      todayLine.textContent = `${y} activity across GitHub, Codeforces, CodeChef, and LeetCode`;
     } else if (todayCount > 0) {
       todayLine.textContent = `active today · ${todayCount} recorded across platforms`;
     } else {
