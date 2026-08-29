@@ -14,16 +14,8 @@
 </head>
 <body>
   <div class="shell">
-    <header class="chrome">
-      <div class="traffic" aria-hidden="true">
-        <span class="orb orb-close"></span>
-        <span class="orb orb-min"></span>
-        <span class="orb orb-max"></span>
-      </div>
-      <div class="chrome-title">garv@portfolio: ~</div>
-    </header>
-
     <nav class="tab-row" aria-label="Sections">
+      <span class="console-title">garv@portfolio:~$</span>
       <button class="tab is-active" type="button" data-pane="home">~/home</button>
       <button class="tab" type="button" data-pane="experience">~/experience</button>
       <button class="tab" type="button" data-pane="skills">~/skills</button>
@@ -38,29 +30,81 @@
           <span class="u">garv</span><span class="at">@</span><span class="host">portfolio</span><span class="host-sep">:</span><span class="path">~</span><span class="dollar">$</span>
           <span class="cmd" data-type="cat about.md"></span>
         </p>
-        <div>
-          <h1 class="display-name">Garv<br><em>Sharma</em></h1>
-          <p class="role">Java Backend Engineer · AI Engineer (Student)</p>
-          <p class="bio">CS student at BIT Mesra with strong DSA (Codeforces Pupil, CodeChef 3★) and hands-on Java/Spring Boot. Interned at Sutherland on enterprise solutioning and at DRDO on encrypted communications. Comfortable shipping distributed systems and applied ML copilots.</p>
-        </div>
-        <div>
-          <p class="hash">metadata</p>
-          <div class="meta">
-            <div class="row"><span class="key">location</span><span class="eq">=</span><span class="val">New Delhi, India</span></div>
-            <div class="row"><span class="key">education</span><span class="eq">=</span><span class="val">BIT Mesra · CSE · 2023–2027</span></div>
-            <div class="row"><span class="key">internships</span><span class="eq">=</span><span class="val">Sutherland Global · DRDO</span></div>
-            <div class="row"><span class="key">stack</span><span class="eq">=</span><span class="val">Java · Spring Boot · Java NIO · PostgreSQL</span></div>
-            <div class="row"><span class="key">coding profiles</span><span class="eq">=</span><span class="val" id="home-coding-profiles">CF Pupil (max 1230) · CC 3★ (1641) · LC 220</span></div>
-            <div class="row"><span class="key">github</span><span class="eq">=</span><span class="val"><a href="https://github.com/GarvS2071" target="_blank" rel="noopener noreferrer">github.com/GarvS2071</a></span></div>
+        <div class="home-grid">
+          <div class="home-main">
+            <div>
+              <h1 class="display-name">Garv<br><em>Sharma</em></h1>
+              <p class="role">Java Backend Engineer · AI Engineer (Student)</p>
+              <p class="bio">CS student at BIT Mesra with strong DSA (Codeforces Pupil, CodeChef 3★) and hands-on Java/Spring Boot. Interned at Sutherland on enterprise solutioning and at DRDO on encrypted communications. Comfortable shipping distributed systems and applied ML copilots.</p>
+            </div>
+            <div>
+              <p class="hash">metadata</p>
+              <div class="meta">
+                <div class="row"><span class="key">location</span><span class="eq">=</span><span class="val">New Delhi, India</span></div>
+                <div class="row"><span class="key">education</span><span class="eq">=</span><span class="val">BIT Mesra · CSE · 2023–2027</span></div>
+                <div class="row"><span class="key">internships</span><span class="eq">=</span><span class="val">Sutherland Global · DRDO</span></div>
+                <div class="row"><span class="key">stack</span><span class="eq">=</span><span class="val">Java · Spring Boot · Java NIO · PostgreSQL</span></div>
+                <div class="row"><span class="key">coding profiles</span><span class="eq">=</span><span class="val" id="home-coding-profiles">CF Pupil (max 1230) · CC 3★ (1641) · LC 220</span></div>
+                <div class="row"><span class="key">github</span><span class="eq">=</span><span class="val"><a href="https://github.com/GarvS2071" target="_blank" rel="noopener noreferrer">github.com/GarvS2071</a></span></div>
+              </div>
+            </div>
+            <div class="actions">
+              <a class="chip-btn primary" href="mailto:garv20sharma@gmail.com">✉ get in touch</a>
+              <a class="chip-btn" href="Garv_Sharma_Resume.pdf" download="Garv_Sharma_Resume.pdf">↓ download cv</a>
+              <a class="chip-btn" href="https://www.linkedin.com/in/garv-sharma-442133282/" target="_blank" rel="noopener noreferrer">⇗ linkedin</a>
+              <a class="chip-btn" href="https://github.com/GarvS2071" target="_blank" rel="noopener noreferrer">↗ github</a>
+            </div>
+            <p class="caret-line"><span class="dollar">$</span> <span class="block" aria-hidden="true"></span></p>
           </div>
+
+          <aside class="live-term" aria-label="Live terminal">
+            <p class="live-head">live@terminal:~$</p>
+
+            <div class="live-block">
+              <p class="hash">latest project</p>
+              <a class="live-title" id="latest-name" href="https://github.com/GarvS2071/Simple-Kafka" target="_blank" rel="noopener noreferrer">Simple Kafka</a>
+              <p class="live-copy" id="latest-summary">Distributed commit-log engine in Java with NIO, a custom binary protocol, and ZooKeeper failover.</p>
+            </div>
+
+            <div class="live-block">
+              <p class="hash">featured projects</p>
+              <ul class="live-list">
+                <li><a href="https://github.com/GarvS2071/Simple-Kafka" target="_blank" rel="noopener noreferrer">Simple Kafka</a></li>
+                <li><a href="https://github.com/GarvS2071/Predictive-maintenance-copilot" target="_blank" rel="noopener noreferrer">AI Predictive Maintenance Copilot</a></li>
+                <li><a href="https://github.com/GarvS2071/AirBnb-Clone-Application" target="_blank" rel="noopener noreferrer">Airbnb-style Booking Platform</a></li>
+                <li><a href="https://github.com/GarvS2071/encrypted-chat" target="_blank" rel="noopener noreferrer">Encrypted Chat</a></li>
+                <li><a href="https://github.com/GarvS2071/Reaction_time" target="_blank" rel="noopener noreferrer">Reaction Time</a></li>
+              </ul>
+            </div>
+
+            <div class="live-block">
+              <div class="heat-bar">
+                <p class="hash heat-label">coding stats</p>
+                <label class="heat-year-wrap">
+                  <span>year</span>
+                  <select id="heat-year" aria-label="Activity year"></select>
+                </label>
+              </div>
+              <p class="live-copy" id="live-stats-line">CF Pupil · CC 3★ · LC 220</p>
+              <p class="live-copy" id="heat-today">checking today’s activity…</p>
+              <div class="heat-scroll">
+                <div class="heat-inner">
+                  <div id="heat-months" class="heat-months"></div>
+                  <div id="heat-map" class="heat-map" role="img" aria-label="Yearly coding activity heatmap"></div>
+                </div>
+              </div>
+              <div class="heat-legend">
+                <span>less</span>
+                <span class="heat-cell l0"></span>
+                <span class="heat-cell l1"></span>
+                <span class="heat-cell l2"></span>
+                <span class="heat-cell l3"></span>
+                <span class="heat-cell l4"></span>
+                <span>more</span>
+              </div>
+            </div>
+          </aside>
         </div>
-        <div class="actions">
-          <a class="chip-btn primary" href="mailto:garv20sharma@gmail.com">✉ get in touch</a>
-          <a class="chip-btn" href="Garv_Sharma_Resume.pdf" download="Garv_Sharma_Resume.pdf">↓ download cv</a>
-          <a class="chip-btn" href="https://www.linkedin.com/in/garv-sharma-442133282/" target="_blank" rel="noopener noreferrer">⇗ linkedin</a>
-          <a class="chip-btn" href="https://github.com/GarvS2071" target="_blank" rel="noopener noreferrer">↗ github</a>
-        </div>
-        <p class="caret-line"><span class="dollar">$</span> <span class="block" aria-hidden="true"></span></p>
       </section>
 
       <section class="pane" id="experience" aria-label="Experience" hidden>
@@ -326,6 +370,6 @@
       <span>Java · Spring Boot · ZooKeeper</span>
     </footer>
   </div>
-  <script src="script.js"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
