@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-31T14:01:31.950Z",
+  "updatedAt": "2026-08-31T22:54:47.370Z",
   "codeforces": {
     "rating": 1162,
     "maxRating": 1230,
@@ -15,21 +15,21 @@
     "solved": 29
   },
   "leetcode": {
-    "solved": 225,
+    "solved": 226,
     "easy": 97,
-    "medium": 105,
+    "medium": 106,
     "hard": 23,
     "contestRating": 1508,
     "primaryLanguage": "C++",
-    "primarySolved": 208
+    "primarySolved": 209
   },
   "github": {
     "latest": {
-      "name": "Simple Kafka",
-      "repo": "Simple-Kafka",
-      "url": "https://github.com/GarvS2071/Simple-Kafka",
-      "pushedAt": "2026-08-27T18:41:07Z",
-      "summary": "Distributed commit-log engine in Java with NIO, a custom binary protocol, and ZooKeeper failover."
+      "name": "WTI Simulated Desk",
+      "repo": "WTI-Simulated-Desk",
+      "url": "https://github.com/GarvS2071/WTI-Simulated-Desk",
+      "pushedAt": "2026-08-31T17:06:03Z",
+      "summary": "NYMEX WTI paper book: EIA inventory event study, rules-based strategy, and Streamlit research board."
     }
   },
   "activity": {
@@ -305,7 +305,7 @@
       "2026-08-28": 8,
       "2026-08-29": 7,
       "2026-08-30": 28,
-      "2026-08-31": 16,
+      "2026-08-31": 20,
       "2026-04-06": 3,
       "2026-05-06": 2,
       "2026-05-18": 2,
