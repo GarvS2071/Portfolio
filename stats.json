@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-09T11:31:56.838Z",
+  "updatedAt": "2026-09-09T16:43:48.814Z",
   "codeforces": {
     "rating": 1162,
     "maxRating": 1230,
@@ -8,11 +8,11 @@
     "solved": 450
   },
   "codechef": {
-    "rating": 1622,
-    "maxRating": 1644,
-    "stars": "3★",
-    "contests": 6,
-    "solved": 29
+    "rating": 0,
+    "maxRating": 0,
+    "stars": "1★",
+    "contests": 0,
+    "solved": 0
   },
   "leetcode": {
     "solved": 244,
